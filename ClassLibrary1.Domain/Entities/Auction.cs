@@ -9,9 +9,4 @@ namespace ClassLibrary1.Domain.Entities
         public int SourceId { get; set; }
         public Status Status { get; set; }
     }
-    //public enum Status
-    //{
-    //    Pending,
-    //    Deleted
-    //}
 }
