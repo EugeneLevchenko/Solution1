@@ -1,4 +1,5 @@
-﻿using ClassLibrary1.Domain.Entities;
+﻿using ClassLibrary1.Core.Enums;
+using ClassLibrary1.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClassLibrary1.Domain.Data

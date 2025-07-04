@@ -1,4 +1,5 @@
-﻿using ClassLibrary1.Domain.Data;
+﻿using ClassLibrary1.Core.Enums;
+using ClassLibrary1.Domain.Data;
 using ClassLibrary1.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
