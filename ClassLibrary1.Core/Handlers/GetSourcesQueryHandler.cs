@@ -1,13 +1,8 @@
-﻿using ClassLibrary1.Core.DTO;
+﻿using AutoMapper;
+using ClassLibrary1.Core.DTO;
 using ClassLibrary1.Core.Queries;
 using ClassLibrary1.Domain.Interfaces;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
 
 namespace ClassLibrary1.Core.Handlers
 {

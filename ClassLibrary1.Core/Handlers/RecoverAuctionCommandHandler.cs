@@ -1,14 +1,7 @@
 ﻿using ClassLibrary1.Core.Commands;
 using ClassLibrary1.Domain.Data;
-using ClassLibrary1.Domain.Entities;
 using ClassLibrary1.Domain.Interfaces;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClassLibrary1.Core.Handlers
 {

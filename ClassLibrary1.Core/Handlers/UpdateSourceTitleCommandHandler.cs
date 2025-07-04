@@ -1,12 +1,6 @@
 ﻿using ClassLibrary1.Core.Commands;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MediatR;
 using ClassLibrary1.Domain.Interfaces;
+using MediatR;
 
 namespace ClassLibrary1.Core.Handlers
 {

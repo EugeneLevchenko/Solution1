@@ -1,18 +1,11 @@
 ﻿using ClassLibrary1.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClassLibrary1.Domain.Data
 {
     public class AuctionDbContext : DbContext
     {
         public DbSet<Auction> Auctions { get; set; }
-        //public DbSet<DeletedAuctionData> DeletedAuctionData { get; set; }
         public DbSet<Source> Sources { get; set; }
         public DbSet<Lot> Lots { get; set; }
 
@@ -26,16 +19,6 @@ namespace ClassLibrary1.Domain.Data
                 entity.Property(e => e.Name).HasMaxLength(255);
                 entity.Property(e => e.SourceId).IsRequired();
             });
-
-            //modelBuilder.Entity<DeletedAuctionData>(entity =>
-            //{
-            //    entity.Property(e => e.Id).ValueGeneratedOnAdd();
-            //    entity.Property(e => e.OriginalId).IsRequired();
-            //    entity.Property(e => e.Name).HasMaxLength(255).IsRequired();
-            //    entity.Property(e => e.SourceId).IsRequired();
-            //    entity.Property(e => e.DeletedAt).IsRequired();
-            //    entity.Property(e => e.IsRecovered).HasDefaultValue(false);
-            //});
 
             modelBuilder.Entity<Lot>(entity =>
             {

@@ -3,9 +3,7 @@ using ClassLibrary1.Core.Queries;
 using ClassLibrary1.Domain.Data;
 using ClassLibrary1.Domain.Infrastructure;
 using ClassLibrary1.Domain.Interfaces;
-using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,16 +14,10 @@ builder.Services.AddDbContext<AuctionDbContext>(options =>
         x => x.EnableRetryOnFailure()));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
-
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-builder.Services.AddAutoMapper(typeof(MappingProfile)); // Убедитесь, что маппинг настроен
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetSourcesQuery).Assembly));
-// Регистрация MediatR с обработчиками из сборки, содержащей GetSourcesQueryHandler
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetSourcesQuery).Assembly));
 
 var app = builder.Build();
 
-// Создание базы данных при запуске
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<AuctionDbContext>();

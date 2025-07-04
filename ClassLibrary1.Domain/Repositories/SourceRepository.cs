@@ -2,11 +2,6 @@
 using ClassLibrary1.Domain.Entities;
 using ClassLibrary1.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClassLibrary1.Domain.Repositories
 {
@@ -14,7 +9,6 @@ namespace ClassLibrary1.Domain.Repositories
     {
         private readonly AuctionDbContext _context;
         public SourceRepository(AuctionDbContext context) => _context = context;
-
         public async Task<List<Source>> GetAllAsync() => await _context.Sources.ToListAsync();
         public async Task<Source> GetByIdAsync(int id) => await _context.Sources.FindAsync(id);
         public async Task UpdateAsync(Source source) => _context.Sources.Update(source);

@@ -200,7 +200,6 @@ else
         });
 
         // Submit Edit Form
-
             editForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const auctionId = document.getElementById('editAuctionId').value;
@@ -238,7 +237,7 @@ else
             alert('Не удалось обновить аукцион. Статус: ' + response.status + '\n' + errorText);
         }
     });
-       
+
         // Delete Action
         document.querySelectorAll('.delete-btn').forEach(button => {
             button.addEventListener('click', async () => {

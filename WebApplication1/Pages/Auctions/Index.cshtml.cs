@@ -1,16 +1,9 @@
-﻿using ClassLibrary1.Core.Commands;
-using ClassLibrary1.Core.DTO;
-using ClassLibrary1.Domain.Data;
+﻿using ClassLibrary1.Domain.Data;
 using ClassLibrary1.Domain.Entities;
-using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using System;
 using System.Text.Json;
-using WebApplication1.Pages.Sources;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace WebApplication1.Pages.Auctions
 {
@@ -108,7 +101,6 @@ namespace WebApplication1.Pages.Auctions
                 return new BadRequestObjectResult("Error saving status");
             }
         }
-
 
         public async Task<IActionResult> OnPostRecoverAsync([FromBody] JsonElement body)
         {
