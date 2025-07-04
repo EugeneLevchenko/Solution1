@@ -40,5 +40,12 @@ namespace ClassLibrary1.Domain.Repositories
         {
             return await _context.Auctions.ToListAsync();
         }
+
+        public async Task DeleteByIdAsync(int sourceId, int id, CancellationToken cancellationToken)
+        {
+            await _context.Auctions
+                .Where(a => a.SourceId == sourceId && a.Id == id)
+                .ExecuteDeleteAsync(cancellationToken);
+        }
     }
 }

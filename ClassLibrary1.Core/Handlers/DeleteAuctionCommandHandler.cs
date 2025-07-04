@@ -4,10 +4,10 @@ using MediatR;
 
 namespace ClassLibrary1.Core.Handlers
 {
+
     public class DeleteAuctionCommandHandler : IRequest<DeleteAuctionCommand>
     {
         private readonly IUnitOfWork _unitOfWork;
-
         public DeleteAuctionCommandHandler(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
@@ -15,8 +15,7 @@ namespace ClassLibrary1.Core.Handlers
 
         public async Task Handle(DeleteAuctionCommand request, CancellationToken cancellationToken)
         {
-            var auction = await _unitOfWork.Auctions.GetByIdAsync(request.Id);
-            _unitOfWork.Auctions.Remove(auction);
+            await _unitOfWork.Auctions.DeleteByIdAsync(request.SourceId, request.Id, cancellationToken);
         }
     }
 }

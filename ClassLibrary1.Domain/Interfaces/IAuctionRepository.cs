@@ -12,5 +12,6 @@ namespace ClassLibrary1.Domain.Interfaces
         Task AddAsync(Auction entity);
         void Remove(Auction entity);
         Task<List<Auction>> GetAllAsync();
+        Task DeleteByIdAsync(int sourceId, int id, CancellationToken cancellationToken);
     }
 }
