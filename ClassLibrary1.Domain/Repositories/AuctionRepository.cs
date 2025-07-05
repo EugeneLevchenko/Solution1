@@ -17,7 +17,7 @@ namespace ClassLibrary1.Domain.Repositories
                 .ToArrayAsync();
         }
 
-        public async Task<Auction> GetBySourceIdAsync(int sourceId) => await _context.Auctions.FindAsync(sourceId);
+        public async Task<Auction> GetBySourceIdAsync(int sourceId) => await _context.Auctions.FirstOrDefaultAsync(a => a.SourceId == sourceId);
 
         public async Task DeleteBySourceIdAsync(int sourceId, int id, CancellationToken cancellationToken)
         {
