@@ -1,6 +1,4 @@
 ﻿using AutoMapper;
-using ClassLibrary1.Core.DTO;
-using ClassLibrary1.Domain.Entities;
 
 namespace ClassLibrary1.Core.Mapping
 {
@@ -8,9 +6,9 @@ namespace ClassLibrary1.Core.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<Source, Source>();
-            CreateMap<Auction, Auction>();
-            CreateMap<Lot, Lot>()
+            CreateMap<Domain.Entities.Source, DTO.Source>();
+            CreateMap<Domain.Entities.Auction, DTO.Auction>();
+            CreateMap<Domain.Entities.Lot, DTO.Lot>()
                 .ForMember(dest => dest.SourceId, opt => opt.MapFrom(src => src.Auction.SourceId));
         }
     }
