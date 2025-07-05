@@ -6,6 +6,5 @@ namespace ClassLibrary1.Domain.Interfaces
         ISourceRepository Sources { get; }
         IAuctionRepository Auctions { get; }
         ILotRepository Lots { get; }
-        Task<int> SaveChangesAsync();
     }
 }

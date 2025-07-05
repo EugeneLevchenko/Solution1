@@ -8,7 +8,10 @@ namespace ClassLibrary1.Domain.Repositories
     public class AuctionRepository : IAuctionRepository
     {
         private readonly AuctionDbContext _context;
-        public AuctionRepository(AuctionDbContext context) => _context = context;
+        public AuctionRepository(AuctionDbContext context)
+        {
+            _context = context;
+        }
 
         public async Task<Auction[]> GetAllBySourceIdAsync(int sourceId)
         {
@@ -17,7 +20,10 @@ namespace ClassLibrary1.Domain.Repositories
                 .ToArrayAsync();
         }
 
-        public async Task<Auction> GetBySourceIdAsync(int sourceId) => await _context.Auctions.FirstOrDefaultAsync(a => a.SourceId == sourceId);
+        public async Task<Auction> GetBySourceIdAsync(int sourceId)
+        {
+            return await _context.Auctions.FirstOrDefaultAsync(a => a.SourceId == sourceId);
+        }
 
         public async Task DeleteBySourceIdAsync(int sourceId, int id, CancellationToken cancellationToken)
         {

@@ -26,8 +26,6 @@ public class UnitOfWork : IUnitOfWork
         await _context.SaveChangesAsync(cancellationToken);
     }
 
-    public async Task<int> SaveChangesAsync() => await _context.SaveChangesAsync();
-
     protected virtual void Dispose(bool disposing)
     {
         if (!_disposed)

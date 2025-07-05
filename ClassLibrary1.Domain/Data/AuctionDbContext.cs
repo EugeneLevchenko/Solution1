@@ -14,21 +14,6 @@ namespace ClassLibrary1.Domain.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Auction>(entity =>
-            {
-                entity.Property(e => e.Id).ValueGeneratedOnAdd();
-                entity.Property(e => e.Name).HasMaxLength(255);
-                entity.Property(e => e.SourceId).IsRequired();
-            });
-
-            modelBuilder.Entity<Lot>(entity =>
-            {
-                entity.Property(e => e.Id).ValueGeneratedOnAdd();
-                entity.Property(e => e.Price)
-                    .HasColumnType("decimal(18,2)")
-                    .IsRequired(false);
-            });
-
             modelBuilder.Entity<Source>().HasData(new Source
             {
                 Id = 1,

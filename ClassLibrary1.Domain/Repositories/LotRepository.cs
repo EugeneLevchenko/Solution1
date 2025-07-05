@@ -9,9 +9,19 @@ namespace ClassLibrary1.Domain.Repositories
     {
         private readonly AuctionDbContext _context;
         public LotRepository(AuctionDbContext context) => _context = context;
-        public async Task<Lot> GetByIdAsync(int id) => await _context.Lots.FirstOrDefaultAsync(l => l.Id == id);
-        public async Task<List<Lot>> GetByAuctionIdAsync(int auctionId) =>
-            await _context.Lots.Where(l => l.AuctionId == auctionId).ToListAsync();
+
+        public async Task<Lot> GetBySourceAndAuctionIdAsync(int sourceId, int auctionId, CancellationToken cancellationToken)
+        {
+            return await _context.Lots
+         .Where(a => a.SourceId == sourceId && a.AuctionId == auctionId)
+         .FirstOrDefaultAsync(cancellationToken);
+        }
+
+        public async Task<List<Lot>> GetByAuctionIdAsync(int auctionId)
+        {
+            return await _context.Lots.Where(l => l.AuctionId == auctionId).ToListAsync();
+        }
+
         public async Task DeleteByIdAsync(int id, CancellationToken cancellationToken)
         {
             await _context.Lots
