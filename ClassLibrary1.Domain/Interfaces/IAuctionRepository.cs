@@ -6,8 +6,6 @@ namespace ClassLibrary1.Domain.Interfaces
     {
         Task<Auction[]> GetAllBySourceIdAsync(int sourceId);
         Task<Auction> GetBySourceIdAsync(int sourceId);
-        Task UpdateAsync(Auction auction);
-        Task AddAsync(Auction entity);
         Task DeleteBySourceIdAsync(int sourceId, int id, CancellationToken cancellationToken);
     }
 }
