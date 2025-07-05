@@ -4,7 +4,7 @@ using ClassLibrary1.Domain.Interfaces;
 using MediatR;
 using WebApplication1.Pages.Sources;
 
-namespace ClassLibrary1.Core.Handlers
+namespace ClassLibrary1.Core.Queries
 {
     public class GetAuctionsBySourceIdQueryHandler : IRequestHandler<GetAuctionsBySourceIdQuery, List<Auction>>
     {
@@ -13,8 +13,8 @@ namespace ClassLibrary1.Core.Handlers
 
         public GetAuctionsBySourceIdQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
-            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
-            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         public async Task<List<Auction>> Handle(GetAuctionsBySourceIdQuery request, CancellationToken cancellationToken)

@@ -7,5 +7,6 @@ namespace ClassLibrary1.Domain.Interfaces
         Task<List<Source>> GetAllAsync();
         Task<Source> GetByIdAsync(int id);
         Task UpdateAsync(Source source);
+        Task<int> UpdateTitleByIdAsync(int id, string newTitle, CancellationToken cancellationToken);
     }
 }

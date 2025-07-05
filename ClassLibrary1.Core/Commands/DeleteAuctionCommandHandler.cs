@@ -1,8 +1,7 @@
-﻿using ClassLibrary1.Core.Commands;
-using ClassLibrary1.Domain.Interfaces;
+﻿using ClassLibrary1.Domain.Interfaces;
 using MediatR;
 
-namespace ClassLibrary1.Core.Handlers
+namespace ClassLibrary1.Core.Commands
 {
 
     public class DeleteAuctionCommandHandler : IRequest<DeleteAuctionCommand>

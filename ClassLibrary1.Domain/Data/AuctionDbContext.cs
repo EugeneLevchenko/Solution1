@@ -48,9 +48,9 @@ namespace ClassLibrary1.Domain.Data
                 .HasDefaultValue(Status.Pending);
 
             modelBuilder.Entity<Lot>().HasData(
-                new Lot { Id = 1, AuctionId = 1, LotNo = "1", Price = 100, Title = "Lot1", Description = "Description1", URL = "https://example.com/lot1" },
-                new Lot { Id = 2, AuctionId = 1, LotNo = "2", Price = 200, Title = "Lot2", Description = "Description2", URL = "https://example.com/lot2" },
-                new Lot { Id = 3, AuctionId = 1, LotNo = "3", Price = 300, Title = "Lot3", Description = "Description3", URL = "https://example.com/lot3" }
+                new Lot { Id = 1, AuctionId = 1, SourceId = 1, LotNo = "1", Price = 100, Title = "Lot1", Description = "Description1", URL = "https://example.com/lot1" },
+                new Lot { Id = 2, AuctionId = 1, SourceId = 1, LotNo = "2", Price = 200, Title = "Lot2", Description = "Description2", URL = "https://example.com/lot2" },
+                new Lot { Id = 3, AuctionId = 1, SourceId = 1, LotNo = "3", Price = 300, Title = "Lot3", Description = "Description3", URL = "https://example.com/lot3" }
             );
         }
     }

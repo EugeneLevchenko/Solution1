@@ -12,5 +12,12 @@ namespace ClassLibrary1.Domain.Repositories
         public async Task<List<Source>> GetAllAsync() => await _context.Sources.ToListAsync();
         public async Task<Source> GetByIdAsync(int id) => await _context.Sources.FirstOrDefaultAsync(s => s.Id == id);
         public async Task UpdateAsync(Source source) => _context.Sources.Update(source);
+
+        public async Task<int> UpdateTitleByIdAsync(int id, string newTitle, CancellationToken cancellationToken)
+        {
+            return await _context.Sources
+                .Where(s => s.Id == id)
+                .ExecuteUpdateAsync(s => s.SetProperty(t => t.Title, newTitle), cancellationToken);
+        }
     }
 }

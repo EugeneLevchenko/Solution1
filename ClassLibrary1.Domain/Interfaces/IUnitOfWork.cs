@@ -1,4 +1,5 @@
-﻿namespace ClassLibrary1.Domain.Interfaces
+﻿
+namespace ClassLibrary1.Domain.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {

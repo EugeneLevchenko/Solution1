@@ -46,4 +46,9 @@ public class UnitOfWork : IUnitOfWork
         Dispose(true);
         GC.SuppressFinalize(this);
     }
+
+    public Task<int> UpdateTitleByIdAsync(int id, string newTitle, CancellationToken cancellationToken)
+    {
+        throw new NotImplementedException();
+    }
 }

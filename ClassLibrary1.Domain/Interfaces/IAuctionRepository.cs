@@ -7,5 +7,6 @@ namespace ClassLibrary1.Domain.Interfaces
         Task<Auction[]> GetAllBySourceIdAsync(int sourceId);
         Task<Auction> GetBySourceIdAsync(int sourceId);
         Task DeleteBySourceIdAsync(int sourceId, int id, CancellationToken cancellationToken);
+        Task<int> UpdateNameBySourceIdAsync(int sourceId, string name, CancellationToken cancellationToken);
     }
 }

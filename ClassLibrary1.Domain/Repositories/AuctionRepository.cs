@@ -25,5 +25,12 @@ namespace ClassLibrary1.Domain.Repositories
                 .Where(a => a.SourceId == sourceId && a.Id == id)
                 .ExecuteDeleteAsync(cancellationToken);
         }
+
+        public async Task<int> UpdateNameBySourceIdAsync(int sourceId, string name, CancellationToken cancellationToken)
+        {
+            return await _context.Auctions
+                .Where(a => a.SourceId == sourceId)
+                .ExecuteUpdateAsync(a => a.SetProperty(b => b.Name, name), cancellationToken);
+        }
     }
 }

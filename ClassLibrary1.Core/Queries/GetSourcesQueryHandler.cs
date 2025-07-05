@@ -1,10 +1,9 @@
 ﻿using AutoMapper;
 using ClassLibrary1.Core.DTO;
-using ClassLibrary1.Core.Queries;
 using ClassLibrary1.Domain.Interfaces;
 using MediatR;
 
-namespace ClassLibrary1.Core.Handlers
+namespace ClassLibrary1.Core.Queries
 {
     public class GetSourcesQueryHandler : IRequestHandler<GetSourcesQuery, List<Source>>
     {
