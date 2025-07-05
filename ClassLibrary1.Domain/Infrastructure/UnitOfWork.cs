@@ -8,18 +8,17 @@ public class UnitOfWork : IUnitOfWork
     private readonly AuctionDbContext _context;
 
     private ISourceRepository? _sources;
+    private IAuctionRepository? _auctions;
+    private ILotRepository? _lots;
     private bool _disposed;
 
     public ISourceRepository Sources => _sources ??= new SourceRepository(_context);
-
-    public IAuctionRepository Auctions { get; }
-    public ILotRepository Lots { get; }
+    public IAuctionRepository Auctions => _auctions ??= new AuctionRepository(_context);
+    public ILotRepository Lots => _lots ??= new LotRepository(_context);
 
     public UnitOfWork(AuctionDbContext context)
     {
         _context = context;
-        Auctions = new AuctionRepository(context);
-        Lots = new LotRepository(context);
     }
 
     public async Task SaveAsync(CancellationToken cancellationToken)
