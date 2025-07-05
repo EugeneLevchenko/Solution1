@@ -1,6 +1,6 @@
 ﻿namespace ClassLibrary1.Core.DTO
 {
-    public class LotDTO
+    public class Lot
     {
         public int Id { get; set; }
         public int AuctionId { get; set; }

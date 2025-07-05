@@ -1,6 +1,6 @@
 ﻿namespace ClassLibrary1.Core.DTO
 {
-    public class SourceDTO
+    public class Source
     {
         public int Id { get; set; }
         public string Title { get; set; }

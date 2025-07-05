@@ -14,7 +14,7 @@ namespace ClassLibrary1.Core.Controllers
         public SourcesController(IMediator mediator) => _mediator = mediator;
 
         [HttpGet]
-        public async Task<ActionResult<List<SourceDTO>>> GetSources()
+        public async Task<ActionResult<List<Source>>> GetSources()
         {
             var sources = await _mediator.Send(new GetSourcesQuery());
             return Ok(sources);

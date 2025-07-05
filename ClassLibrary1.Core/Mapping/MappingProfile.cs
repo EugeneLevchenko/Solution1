@@ -8,9 +8,9 @@ namespace ClassLibrary1.Core.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<Source, SourceDTO>();
-            CreateMap<Auction, AuctionDTO>();
-            CreateMap<Lot, LotDTO>()
+            CreateMap<Source, Source>();
+            CreateMap<Auction, Auction>();
+            CreateMap<Lot, Lot>()
                 .ForMember(dest => dest.SourceId, opt => opt.MapFrom(src => src.Auction.SourceId));
         }
     }

@@ -3,5 +3,5 @@ using MediatR;
 
 namespace ClassLibrary1.Core.Queries
 {
-    public class GetSourcesQuery : IRequest<List<SourceDTO>> { }
+    public class GetSourcesQuery : IRequest<List<Source>> { }
 }

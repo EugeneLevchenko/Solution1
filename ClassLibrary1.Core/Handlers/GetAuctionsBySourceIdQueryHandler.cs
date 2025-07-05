@@ -6,7 +6,7 @@ using WebApplication1.Pages.Sources;
 
 namespace ClassLibrary1.Core.Handlers
 {
-    public class GetAuctionsBySourceIdQueryHandler : IRequestHandler<GetAuctionsBySourceIdQuery, List<AuctionDTO>>
+    public class GetAuctionsBySourceIdQueryHandler : IRequestHandler<GetAuctionsBySourceIdQuery, List<Auction>>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -17,10 +17,10 @@ namespace ClassLibrary1.Core.Handlers
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        public async Task<List<AuctionDTO>> Handle(GetAuctionsBySourceIdQuery request, CancellationToken cancellationToken)
+        public async Task<List<Auction>> Handle(GetAuctionsBySourceIdQuery request, CancellationToken cancellationToken)
         {
             var auctions = await _unitOfWork.Auctions.GetAllBySourceIdAsync(request.SourceId);
-            return _mapper.Map<List<AuctionDTO>>(auctions);
+            return _mapper.Map<List<Auction>>(auctions);
         }
     }
 }
