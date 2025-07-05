@@ -6,18 +6,45 @@ namespace ClassLibrary1.Domain.Infrastructure;
 public class UnitOfWork : IUnitOfWork
 {
     private readonly AuctionDbContext _context;
-    public ISourceRepository Sources { get; }
+
+    private ISourceRepository? _sources;
+    private bool _disposed;
+
+    public ISourceRepository Sources => _sources ??= new SourceRepository(_context);
+
     public IAuctionRepository Auctions { get; }
     public ILotRepository Lots { get; }
 
     public UnitOfWork(AuctionDbContext context)
     {
         _context = context;
-        Sources = new SourceRepository(context);
         Auctions = new AuctionRepository(context);
         Lots = new LotRepository(context);
     }
 
+    public async Task SaveAsync(CancellationToken cancellationToken)
+    {
+        await _context.SaveChangesAsync(cancellationToken);
+    }
+
     public async Task<int> SaveChangesAsync() => await _context.SaveChangesAsync();
-    public void Dispose() => _context.Dispose();
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!_disposed)
+        {
+            if (disposing)
+            {
+                _context.Dispose();
+            }
+
+            _disposed = true;
+        }
+    }
+
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
 }
