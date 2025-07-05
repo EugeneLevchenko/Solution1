@@ -15,7 +15,7 @@ namespace ClassLibrary1.Core.Handlers
 
         public async Task Handle(DeleteAuctionCommand request, CancellationToken cancellationToken)
         {
-            await _unitOfWork.Auctions.DeleteByIdAsync(request.SourceId, request.Id, cancellationToken);
+            await _unitOfWork.Auctions.DeleteBySourceIdAsync(request.SourceId, request.Id, cancellationToken);
         }
     }
 }

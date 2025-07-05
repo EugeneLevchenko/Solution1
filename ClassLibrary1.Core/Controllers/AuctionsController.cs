@@ -17,8 +17,7 @@ namespace ClassLibrary1.Core.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var auctions = await _unitOfWork.Auctions.GetAllAsync();
-            return Ok(auctions);
+            return Ok();
         }
     }
 }

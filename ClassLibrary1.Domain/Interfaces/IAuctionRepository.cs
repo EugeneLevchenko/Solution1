@@ -4,14 +4,10 @@ namespace ClassLibrary1.Domain.Interfaces
 {
     public interface IAuctionRepository
     {
-        Task<List<Auction>> GetBySourceIdAsync(int sourceId);
-        Task<Auction> GetByIdAsync(int id);
+        Task<Auction[]> GetAllBySourceIdAsync(int sourceId);
+        Task<Auction> GetBySourceIdAsync(int sourceId);
         Task UpdateAsync(Auction auction);
-        Task DeleteAsync(int id);
-        Task<List<Auction>> GetAllBySourceIdAsync(int sourceId);
         Task AddAsync(Auction entity);
-        void Remove(Auction entity);
-        Task<List<Auction>> GetAllAsync();
-        Task DeleteByIdAsync(int sourceId, int id, CancellationToken cancellationToken);
+        Task DeleteBySourceIdAsync(int sourceId, int id, CancellationToken cancellationToken);
     }
 }

@@ -15,7 +15,7 @@ namespace ClassLibrary1.Core.Handlers
 
         public async Task<bool> Handle(UpdateAuctionCommand request, CancellationToken cancellationToken)
         {
-            var auction = await _unitOfWork.Auctions.GetByIdAsync(request.Id);
+            var auction = await _unitOfWork.Auctions.GetBySourceIdAsync(request.SourceId);
             if (auction == null) return false;
 
             auction.Name = request.Name;
